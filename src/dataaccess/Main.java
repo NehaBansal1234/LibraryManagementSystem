@@ -8,10 +8,12 @@ import dataaccess.storage.*;
 
 public class Main {
 	public static void main(String[] args){
-		DataAccess dataAccess = loadInitialData();
-		FileSerialization.serializeData(dataAccess);
-		DataAccess dataAccess1 = FileSerialization.deSerializeData();
-		for(LibraryMember member:dataAccess1.getMembers().values()){
+		
+		DataAccessSingleton.setDataAccess(loadInitialData());
+		FileSerialization.serializeData();
+		FileSerialization.deSerializeData();
+		
+		for(LibraryMember member:DataAccessSingleton.getDataAccess().getMembers().values()){
 			System.out.println(member.getFirstName() + " " + member.getLastName());
 		}
 	}

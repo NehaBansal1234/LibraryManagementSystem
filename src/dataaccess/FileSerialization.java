@@ -10,11 +10,11 @@ import java.io.ObjectOutputStream;
 public class FileSerialization {
 	public static final String DATA = "src/resource/data.ser";
 	
-	public static void serializeData(DataAccess dataAccess){
+	public static void serializeData(){
 		try{
 			FileOutputStream fileOutput = new FileOutputStream(DATA);
 			ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
-			objectOutput.writeObject(dataAccess);
+			objectOutput.writeObject(DataAccessSingleton.getDataAccess());
 			objectOutput.close();
 			fileOutput.close();
 		}catch (FileNotFoundException ex){
@@ -28,8 +28,8 @@ public class FileSerialization {
 		}
 	}
 
-	public static DataAccess deSerializeData(){
-		DataAccess dataAccess = new DataAccessFacade();
+	public static void deSerializeData(){
+		DataAccess dataAccess = DataAccessSingleton.getDataAccess();
 		try{
 			
 			FileInputStream fileInput = new FileInputStream(DATA);
@@ -44,6 +44,6 @@ public class FileSerialization {
 		catch(IOException ioEx){
 			ioEx.printStackTrace();
 		}
-		return dataAccess;
+		DataAccessSingleton.setDataAccess(dataAccess);
 	}
 }
