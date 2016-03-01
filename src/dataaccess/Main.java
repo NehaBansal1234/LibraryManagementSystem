@@ -25,6 +25,7 @@ public class Main {
 		Role librarian = new LibrarianRole();
 		
 		// add 4 members
+		
 		LibraryMember member1 = new LibraryMember("Jerry", "Lewis", "641-888-111", "student", "", address);
 		dataAccess.addMember(member1);
 		LibraryMember member2 = new LibraryMember("Kevin", "Lewis", "641-888-112", "student", "", address);
@@ -35,8 +36,9 @@ public class Main {
 		dataAccess.addMember(member4);
 		
 		// add 2 Librarian, 1 is Admin, 1 is Librarian
-		dataAccess.addLibrarian(new Librarian("John", "Lewis", "641-888-115", "Admin", "", address, admin));
-		dataAccess.addLibrarian(new Librarian("Edward", "Lewis", "641-888-116", "Admin", "", address, librarian));
+		//Librarian( firstName,   lastName,  telephone,  credentials,  shortBio,  address, userName ,Password) 
+		dataAccess.addLibrarian(new Librarian("John", "Lewis", "641-888-115", "Admin", "", address, admin , "JohnLewis", "JohnLewis"));
+		dataAccess.addLibrarian(new Librarian("Edward", "Lewis", "641-888-116", "Admin", "", address, librarian ,"EdwardLewis" ,"EdwardLewis"));
 		
 		Author author1 = new Author("Patti", "Smith", "641-888-117", "author", "", address);
 	//	dataAccess.addAuthor(author1);
