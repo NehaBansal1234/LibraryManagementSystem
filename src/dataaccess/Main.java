@@ -12,6 +12,9 @@ public class Main {
 		DataAccessSingleton.setDataAccess(loadInitialData());
 		FileSerialization.serializeData();
 		FileSerialization.deSerializeData();
+		for(Librarian lib : DataAccessSingleton.getDataAccess().getLibrarians().values()){
+			   System.out.println(lib.getFirstName() + " " + lib.getLastName());
+			  }
 		
 		for(LibraryMember member:DataAccessSingleton.getDataAccess().getMembers().values()){
 			System.out.println(member.getFirstName() + " " + member.getLastName());
@@ -28,13 +31,13 @@ public class Main {
 		
 		// add 4 members
 		
-		LibraryMember member1 = new LibraryMember("Jerry", "Lewis", "641-888-111", "student", "", address);
+		LibraryMember member1 = new LibraryMember("1" ,"Jerry", "Lewis", "641-888-111", "student", "", address);
 		dataAccess.addMember(member1);
-		LibraryMember member2 = new LibraryMember("Kevin", "Lewis", "641-888-112", "student", "", address);
+		LibraryMember member2 = new LibraryMember("2" ,"Kevin", "Lewis", "641-888-112", "student", "", address);
 		dataAccess.addMember(member2);
-		LibraryMember member3 = new LibraryMember("Tom", "Lewis", "641-888-113", "student", "", address);
+		LibraryMember member3 = new LibraryMember("3" ,"Tom", "Lewis", "641-888-113", "student", "", address);
 		dataAccess.addMember(member3);
-		LibraryMember member4 = new LibraryMember("Merry", "Lewis", "641-888-114", "student", "", address);
+		LibraryMember member4 = new LibraryMember("4" ,"Merry", "Lewis", "641-888-114", "student", "", address);
 		dataAccess.addMember(member4);
 		
 		// add 2 Librarian, 1 is Admin, 1 is Librarian
